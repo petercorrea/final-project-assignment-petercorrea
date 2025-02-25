@@ -1,0 +1,15 @@
+[Unit]
+Description=Autogarden Web Service
+Requires=pigpiod.service
+Wants=network-online.target
+After=network-online.target pigpiod.service
+
+[Service]
+Environment=NODE_PORT=3000
+User=peter
+WorkingDirectory=~/autogarden
+ExecStart=~/autogarden/bin/run-web.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
