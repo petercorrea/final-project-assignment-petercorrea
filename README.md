@@ -63,7 +63,7 @@ sudo ./bin/run-web.sh
 
 #### Postman
 
-Export this [Postman collection](https://www.postman.com/orange-shadow-8689/workspace/autogarden/collection/8244324-e9d8f79e-d3f2-423e-b0d1-a4ca5b1b08ca?action=share&creator=8244324&active-environment=8244324-861384b4-b4e3-48a3-8da1-181705bd2d8c), add to your private workspace, add the `pi-ip` env variable and you should be good to go.
+Export this [Postman collection](https://www.postman.com/ourkitchen/workspace/autogarden/collection/8244324-5333d899-cfdc-420a-9eff-3202f5d02648?action=share&creator=8244324), add to your private workspace, add the `pi-ip` env variable and you should be good to go.
 
 ### Scripts
 
