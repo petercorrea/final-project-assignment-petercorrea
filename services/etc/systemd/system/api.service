@@ -1,0 +1,14 @@
+[Unit]
+Description=Autogarden API Service
+Requires=pigpiod.service
+Wants=network-online.target
+After=network-online.target pigpiod.service
+
+[Service]
+User=peter
+WorkingDirectory=~/autogarden
+ExecStart=~/autogarden/bin/run-api.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
