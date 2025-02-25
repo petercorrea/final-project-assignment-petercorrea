@@ -1,0 +1,9 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+# If using Jython
+*.class
+.env
+node_modules

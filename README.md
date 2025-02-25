@@ -12,57 +12,30 @@ Pedro (Peter) Correa - Project will be completed individually.
 ## Resources
 See the [Project Overview](https://github.com/cu-ecen-aeld/final-project-petercorrea/wiki/1.-Project-Overview) and [Project Board](https://github.com/users/petercorrea/projects/4/views/1?groupedBy%5BcolumnId%5D=170163068) for more details.
 
-## Getting Started
+## Setup
 
-Start with a clean build of Linux. Use the [RaspberryPi Imager](https://www.raspberrypi.com/software/). Ensure ssh and wifi is setup. Once the image is written, pop the SDcard into the pi and ssh into it.
+- Start with a clean build of Linux. Ensure SSH and WIFI is setup. SSH into the pi and perform the following steps:
 
+- clone the repo
 ```bash
-# clone repo
 git clone git@github.com:petercorrea/autogarden.git
 cd autogarden
 ```
 
-Install dependencies, and run services pigpiod
+- install dependencies and services
 
 ```bash
-./bin/setup.sh
-```
-
-Ensure the pigpiod daemon is running
-
-```bash
-sudo systemctl status pigpiod
-sudo systemctl status mqtt.service
+sudo ./bin/setup.sh
 ```
 
 ## Usage
 
-### Controlling Individual Sensors
-
-Activate python venv `source venv/bin/activate`
-
-Examples:
-
-```bash
-python app/sensors/distance/distance.py
-python app/sensors/humidity/humidity.py
-python app/sensors/light/light.py [--on] [--off] [--brightness INT%]
-python app/sensors/pcb_temp/pcb_temp.py
-python app/sensors/pump/pump.py [--on] [--off] [--speed INT%] [--factory-host STR%] [--factory-port INT%]
-python app/sensors/temperature/temperature.py
-```
-
-### REST API
-
-Activate python venv `source venv/bin/activate`
-
-Then Run `python run.py`, this will print the ip to send requests.
-
-> **Note:** if run.py errors with: AttributeError: module 'dotenv' has no attribute 'find_dotenv'
+### REST API (Preffered)
+Run the following scripts. API will be accessible on port 5000, Web will be accessible on port 3000.
 
 ```
-pip uninstall python-dotenv
-python run.py
+sudo ./bin/run-api.sh &&
+sudo ./bin/run-web.sh
 ```
 
 #### Endpoints
@@ -91,6 +64,21 @@ python run.py
 #### Postman
 
 Export this [Postman collection](https://www.postman.com/orange-shadow-8689/workspace/autogarden/collection/8244324-e9d8f79e-d3f2-423e-b0d1-a4ca5b1b08ca?action=share&creator=8244324&active-environment=8244324-861384b4-b4e3-48a3-8da1-181705bd2d8c), add to your private workspace, add the `pi-ip` env variable and you should be good to go.
+
+### Scripts
+
+Activate python venv `source venv/bin/activate`
+
+Examples:
+
+```bash
+python app/sensors/distance/distance.py
+python app/sensors/humidity/humidity.py
+python app/sensors/light/light.py [--on] [--off] [--brightness INT%]
+python app/sensors/pcb_temp/pcb_temp.py
+python app/sensors/pump/pump.py [--on] [--off] [--speed INT%] [--factory-host STR%] [--factory-port INT%]
+python app/sensors/temperature/temperature.py
+```
 
 ### Cron Job
 
